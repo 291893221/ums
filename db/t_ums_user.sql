@@ -21,7 +21,7 @@ CREATE TABLE `t_ums_user` (
 ) ENGINE = INNODB DEFAULT CHARSET = utf8;
 
 ALTER TABLE t_ums_user COMMENT = '用户表';
-
+-- 初始化数据
 INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('root', MD5('root'), '超级管理员');
 INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('admin', MD5('admin'), '管理员');
 INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('ums', MD5('ums'), '运维帐号');
