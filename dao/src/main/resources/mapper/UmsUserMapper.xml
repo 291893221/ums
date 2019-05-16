@@ -30,7 +30,7 @@
     insert into t_ums_user (username, `password`, nickname,
       is_locked, is_admin, is_delete,
       create_time, update_time)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+    values (#{username,jdbcType=VARCHAR}, MD5(#{password,jdbcType=VARCHAR}), #{nickname,jdbcType=VARCHAR},
       #{isLocked,jdbcType=INTEGER}, #{isAdmin,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -67,7 +67,7 @@
         #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+        MD5(#{password,jdbcType=VARCHAR}),
       </if>
       <if test="nickname != null">
         #{nickname,jdbcType=VARCHAR},
@@ -96,7 +96,7 @@
         username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
-        `password` = #{password,jdbcType=VARCHAR},
+        `password` = MD5(#{password,jdbcType=VARCHAR}),
       </if>
       <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
@@ -122,7 +122,7 @@
   <update id="updateByPrimaryKey" parameterType="com.github.entity.UmsUser">
     update t_ums_user
     set username = #{username,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
+      `password` = MD5(#{password,jdbcType=VARCHAR}),
       nickname = #{nickname,jdbcType=VARCHAR},
       is_locked = #{isLocked,jdbcType=INTEGER},
       is_admin = #{isAdmin,jdbcType=INTEGER},
@@ -141,6 +141,24 @@
     </if>
     <if test="username != null and username != ''">
       and username like concat('%',#{username,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="nickname != null and nickname != ''">
+      and nickname like concat('%',#{nickname,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="isLocked != null">
+      and is_locked = #{isLocked,jdbcType=INTEGER}
+    </if>
+    <if test="isAdmin != null">
+      and is_admin = #{isAdmin,jdbcType=INTEGER}
+    </if>
+    <if test="isDelete != null">
+      and is_delete = #{isDelete,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null">
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateTime != null">
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
     </if>
   </select>
 </mapper>
