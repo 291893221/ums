@@ -1,14 +1,15 @@
 # ums 用户管理系统
 
-### 后台设计
-暴露的RESTful接口:
+### 概况
+通用的基础权限系统:
 
 * [swagger接口文档](http://localhost:8080/swagger-ui.html)
+* [swagger接口文档](http://localhost:8080/ums/user)
 
-### 前端设计
-VUE.js:
+### 接口
+RESTful API:
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+* [用户管理](http://localhost:8080/ums/user)
+* [角色管理](http://localhost:8080/ums/user)
+* [权限管理](http://localhost:8080/ums/user)
 
