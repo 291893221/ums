@@ -3,7 +3,7 @@
 ### 后台设计
 暴露的RESTful接口:
 
-* [swagger接口文档](https://localhost/swagger-ui.html)
+* [swagger接口文档](http://localhost:8080/swagger-ui.html)
 
 ### 前端设计
 VUE.js:

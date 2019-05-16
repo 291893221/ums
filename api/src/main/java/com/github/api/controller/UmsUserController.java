@@ -8,10 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * http://localhost:8080/ums/user
@@ -34,6 +31,14 @@ public class UmsUserController {
 		return record;
 	}
 
+	@DeleteMapping
+	@ApiOperation("删除")
+	@ApiParam(name = "id", value = "主键")
+	public int delete(String id) {
+		log.info("id {}", id);
+		return umsUserService.deleteByPrimaryKey(id);
+	}
+
 	@GetMapping
 	@ApiOperation("查询")
 	@ApiParam(name = "UmsUser", value = "对象")
@@ -42,4 +47,11 @@ public class UmsUserController {
 		return umsUserService.selectPage(record);
 	}
 
+	@PutMapping
+	@ApiOperation("修改")
+	@ApiParam(name = "UmsUser", value = "对象")
+	public int updateByPrimaryKeySelective(UmsUser record) {
+		log.info("sysUser {}", record);
+		return umsUserService.updateByPrimaryKeySelective(record);
+	}
 }

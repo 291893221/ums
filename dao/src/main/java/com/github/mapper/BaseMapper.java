@@ -10,9 +10,9 @@ public interface BaseMapper<T extends BaseEntity> {
 
 	int insertSelective(T t);
 
-	int deleteByPrimaryKey(Integer id);
+	int deleteByPrimaryKey(String id);
 
-	T selectByPrimaryKey(Integer id);
+	T selectByPrimaryKey(String id);
 
 	List<T> selectBySelective(T record);
 
