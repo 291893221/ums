@@ -7,6 +7,7 @@ import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * http://localhost:8080/ums/user
@@ -22,7 +23,12 @@ public class UmsUserController {
 
 	@PostMapping
 	@ApiOperation(value = "新增", notes = "新增用户信息")
-	public UmsUser insert(UmsUser record) {
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "username", value = "登陆账号", paramType = "query", required = true),
+			@ApiImplicitParam(name = "password", value = "登陆密码", paramType = "query", required = true),
+			@ApiImplicitParam(name = "nickname", value = "用户姓名", paramType = "query")
+	})
+	public UmsUser insert(@ApiIgnore UmsUser record) {
 		umsUserService.insertSelective(record);
 		log.info("sysUser {}", record);
 		return record;
