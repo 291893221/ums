@@ -22,14 +22,6 @@ public class UmsUserController {
 
 	@PostMapping
 	@ApiOperation(value = "新增", notes = "新增用户信息")
-	@ApiImplicitParams({
-			@ApiImplicitParam(name = "username", value = "账号名", dataType = "String", paramType = "query"),
-			@ApiImplicitParam(name = "password", value = "密码啊", dataType = "String"),
-			@ApiImplicitParam(name = "locked", defaultValue = "0")
-	})
-	@ApiResponses({
-			@ApiResponse(code = 200, message = "error", response = UmsUser.class)
-	})
 	public UmsUser insert(UmsUser record) {
 		umsUserService.insertSelective(record);
 		log.info("sysUser {}", record);
