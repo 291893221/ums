@@ -21,7 +21,7 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsUser" useGeneratedKeys="true">
     insert into t_ums_user (username, `password`)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    values (#{username,jdbcType=VARCHAR}, MD5(#{password,jdbcType=VARCHAR}))
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsUser" useGeneratedKeys="true">
     insert into t_ums_user
@@ -38,7 +38,7 @@
         #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+        MD5(#{password,jdbcType=VARCHAR}),
       </if>
     </trim>
   </insert>
@@ -49,7 +49,7 @@
         username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
-        `password` = #{password,jdbcType=VARCHAR},
+        `password` = MD5(#{password,jdbcType=VARCHAR}),
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -57,7 +57,7 @@
   <update id="updateByPrimaryKey" parameterType="com.github.entity.UmsUser">
     update t_ums_user
     set username = #{username,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR}
+      `password` = MD5(#{password,jdbcType=VARCHAR})
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectBySelective" parameterType="com.github.entity.UmsUser" resultMap="BaseResultMap">
@@ -70,9 +70,6 @@
     </if>
     <if test="username != null and username != ''">
       and username like concat('%',#{username,jdbcType=VARCHAR},'%')
-    </if>
-    <if test="password != null and password != ''">
-      and password like concat('%',#{password,jdbcType=VARCHAR},'%')
     </if>
   </select>
 </mapper>
