@@ -13,7 +13,7 @@ public class BaseService<T extends BaseEntity> {
 	@Autowired
 	private BaseMapper<T> mapper;
 
-	public int deleteByPrimaryKey(String id) {
+	public int deleteByPrimaryKey(Long id) {
 		return mapper.deleteByPrimaryKey(id);
 	}
 
@@ -25,7 +25,7 @@ public class BaseService<T extends BaseEntity> {
 		return mapper.insertSelective(t);
 	}
 
-	public T selectByPrimaryKey(String id) {
+	public T selectByPrimaryKey(Long id) {
 		return mapper.selectByPrimaryKey(id);
 	}
 

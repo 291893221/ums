@@ -1,3 +1,5 @@
 spring:
   profiles:
     active: apidev,daodev
+application:
+  version: 1.0-SNAPSHOT

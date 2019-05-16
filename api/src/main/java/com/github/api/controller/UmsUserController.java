@@ -34,7 +34,7 @@ public class UmsUserController {
 	@DeleteMapping
 	@ApiOperation("删除")
 	@ApiParam(name = "id", value = "主键")
-	public int delete(String id) {
+	public int delete(Long id) {
 		log.info("id {}", id);
 		return umsUserService.deleteByPrimaryKey(id);
 	}
