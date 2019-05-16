@@ -7,4 +7,4 @@ CREATE TABLE t_ums_user_ex (
 	sex INT COMMENT '0:女,1:男',
 	username VARCHAR (32) NOT NULL UNIQUE COMMENT '帐号',
 	CONSTRAINT t_ums_user_ex_fk FOREIGN KEY (username) REFERENCES t_ums_user (username)
-) COMMENT '用户扩展表';
+) COMMENT '用户信息扩展表';

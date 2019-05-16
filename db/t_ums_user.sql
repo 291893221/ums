@@ -14,9 +14,10 @@ CREATE TABLE `t_ums_user` (
 	`is_delete` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '是否删除（0:未删除,1:已删除）',
 	`create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL COMMENT '创建时间',
 	`update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL COMMENT '更新时间',
+	`describe` VARCHAR(32) COMMENT '描述信息',
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
-	-- 公共字段 end
 	PRIMARY KEY (`id`)
+	-- 公共字段 end
 ) ENGINE = INNODB DEFAULT CHARSET = utf8;
 
 ALTER TABLE t_ums_user COMMENT = '用户表';
