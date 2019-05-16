@@ -10,9 +10,9 @@ import lombok.Data;
 @ApiModel(value="com.github.entity.UmsUser")
 @Data
 public class UmsUser extends BaseEntity {
-    @ApiModelProperty(value="登陆帐号", required = true)
+    @ApiModelProperty(value="登陆帐号")
     private String username;
-    @ApiModelProperty(value="登陆密码(MD5加密)", required = true)
+    @ApiModelProperty(value="登陆密码(MD5加密)")
     private String password;
     @ApiModelProperty(value="用户姓名")
     private String nickname;
