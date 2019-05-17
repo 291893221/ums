@@ -4,11 +4,11 @@ IF EXISTS `t_ums_log`;
 -- 建表
 CREATE TABLE `t_ums_log` (
   -- 业务字段 start
-	`url` VARCHAR (255) NOT NULL UNIQUE COMMENT '访问地址',
-	`class` VARCHAR (32) NOT NULL COMMENT '类',
-	`method` VARCHAR (32) NOT NULL COMMENT '方法',
-	`line` INT(11) NOT NULL DEFAULT '0' COMMENT '代码行',
-	`lever` VARCHAR (16) NOT NULL DEFAULT '0' COMMENT '日志级别',
+	`log_url` VARCHAR (255) NOT NULL UNIQUE COMMENT '访问地址',
+	`log_class` VARCHAR (32) NOT NULL COMMENT '类',
+	`log_method` VARCHAR (32) NOT NULL COMMENT '方法',
+	`log_line` INT(11) NOT NULL DEFAULT '0' COMMENT '代码行',
+	`log_lever` VARCHAR (16) NOT NULL DEFAULT '0' COMMENT '日志级别',
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
