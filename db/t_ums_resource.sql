@@ -10,6 +10,7 @@ CREATE TABLE `t_ums_resource` (
 	`resource_icon` VARCHAR(32) COMMENT '图标',
 	`resource_type` TINYINT(1) COMMENT '资源类型(1:模块目录,2:功能菜单,3:操作按钮)',
 	`pid` BIGINT COMMENT '上级id',
+  `system_id` BIGINT COMMENT '系统编号，外键关联t_ums_system.id主键',
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
@@ -21,7 +22,7 @@ CREATE TABLE `t_ums_resource` (
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT = '权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT = '资源树结构表';
 -- 初始化数据
 INSERT INTO `t_ums_resource` (`resource_url`, `resource_name`, `resource_permission`) VALUES ('/ums/user', '用户管理模块', 'c,r,u,d');
 INSERT INTO `t_ums_resource` (`resource_url`, `resource_name`, `resource_permission`) VALUES ('/ums/user', '用户管理模块', 'c,r');

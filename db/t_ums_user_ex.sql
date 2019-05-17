@@ -1,6 +1,3 @@
--- 删表
-DROP TABLE
-IF EXISTS `t_ums_user_ex`;
 -- 建表
 CREATE TABLE t_ums_user_ex (
 	-- 业务字段 start

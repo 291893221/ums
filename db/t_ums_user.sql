@@ -1,3 +1,6 @@
+-- 删外键关联表
+DROP TABLE
+IF EXISTS `t_ums_user_ex`;
 -- 删表
 DROP TABLE
 IF EXISTS `t_ums_user`;
