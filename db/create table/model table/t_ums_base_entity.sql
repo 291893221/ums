@@ -1,14 +1,8 @@
 -- 删表
 DROP TABLE
-IF EXISTS `t_ums_organizition`;
+IF EXISTS `t_ums_base_entity`;
 -- 建表
-CREATE TABLE `t_ums_organizition` (
-  -- 业务字段 start
-	`organizition_name`VARCHAR(32) NOT NULL COMMENT '组织名称',
-  `organizition_icon` VARCHAR(32) COMMENT '图标',
-	`organizition_type` TINYINT(1) COMMENT '组织类型(1:集团,2:分公司,3:事业部,4:部门)',
-	`pid` BIGINT COMMENT '上级id',
-  -- 业务字段 end
+CREATE TABLE `t_ums_base_entity` (
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
 	`create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL COMMENT '创建时间',
@@ -19,11 +13,4 @@ CREATE TABLE `t_ums_organizition` (
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = '组织树结构表';
--- 初始化数据
-INSERT INTO `t_ums_organizition`
-	(`organizition_name`)
-VALUES
-	('A公司'),
-	('研发部'),
-	('后勤部');
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '基础表';
