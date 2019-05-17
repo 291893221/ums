@@ -16,7 +16,7 @@ public class UmsLog extends BaseEntity {
 	private String logClass;
 	@ApiModelProperty(value = "方法")
 	private String logMethod;
-	@ApiModelProperty(value = "代码行")
+	@ApiModelProperty(value = "代码行", example = "1")
 	private Integer logLine;
 	@ApiModelProperty(value = "日志级别")
 	private String logLever;

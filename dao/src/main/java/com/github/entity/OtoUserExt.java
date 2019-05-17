@@ -19,6 +19,6 @@ public class OtoUserExt {
     @ApiModelProperty(value="邮箱")
     private String email;
 
-    @ApiModelProperty(value="0:女,1:男")
+    @ApiModelProperty(value="0:女,1:男", example = "1")
     private Integer sex;
 }
