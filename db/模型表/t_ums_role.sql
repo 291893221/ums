@@ -18,6 +18,9 @@ CREATE TABLE `t_ums_role` (
 	-- 公共字段 end
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '角色表';
 -- 初始化数据
-INSERT INTO `t_ums_role`(`rolename`) VALUES ('ROLE_ROOT');
-INSERT INTO `t_ums_role`(`rolename`) VALUES ('ROLE_ADMIN');
-INSERT INTO `t_ums_role`(`rolename`) VALUES ('ROLE_USER');
+INSERT INTO `t_ums_role`
+	(`rolename`)
+VALUES
+	('ROLE_ROOT'),
+	('ROLE_ADMIN'),
+	('ROLE_USER');

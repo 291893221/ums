@@ -21,8 +21,9 @@ CREATE TABLE `t_ums_organizition` (
 	-- 公共字段 end
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT = '组织树结构表';
 -- 初始化数据
-INSERT INTO `t_ums_organizition` (`organizition_name`)
-	VALUES
+INSERT INTO `t_ums_organizition`
+	(`organizition_name`)
+VALUES
 	('A公司'),
 	('研发部'),
 	('后勤部');

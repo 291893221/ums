@@ -23,6 +23,9 @@ CREATE TABLE `t_ums_resource` (
 	-- 公共字段 end
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT = '资源树结构表';
 -- 初始化数据
-INSERT INTO `t_ums_resource` (`resource_url`, `resource_name`, `resource_permission`) VALUES ('/ums/user', '用户管理模块', 'c,r,u,d');
-INSERT INTO `t_ums_resource` (`resource_url`, `resource_name`, `resource_permission`) VALUES ('/ums/user', '用户管理模块', 'c,r');
-INSERT INTO `t_ums_resource` (`resource_url`, `resource_name`, `resource_permission`) VALUES ('/ums/user', '用户管理模块', 'r');
+INSERT INTO `t_ums_resource`
+	(`resource_url`, `resource_name`, `resource_permission`)
+VALUES
+	('/ums/user', '用户管理模块', 'c,r,u,d'),
+	('/ums/user', '用户管理模块', 'c,r'),
+	('/ums/user', '用户管理模块', 'r');

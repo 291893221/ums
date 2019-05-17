@@ -1,6 +1,3 @@
--- 删外键关联表
-DROP TABLE
-IF EXISTS `t_ums_user_ex`;
 -- 删表
 DROP TABLE
 IF EXISTS `t_ums_user`;
@@ -25,15 +22,18 @@ CREATE TABLE `t_ums_user` (
 	-- 公共字段 end
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户表';
 -- 初始化数据
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('root', MD5('root'), '超级管理员');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('admin', MD5('admin'), '管理员');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('ums', MD5('ums'), '运维帐号');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('test', MD5('test'), '测试帐号');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('dev', MD5('dev'), '开发帐号');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('prod', MD5('prod'), '生产帐号');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('site', MD5('site'), '准生产帐号');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('stage', MD5('site'), '试运行帐号');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('local', MD5('site'), '本地帐号');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('test001', MD5('test001'), '测试帐号001');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('test002', MD5('test002'), '测试帐号002');
-INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('test003', MD5('test003'), '测试帐号003');
+INSERT INTO `t_ums_user`
+	(`username`, `password`, `nickname`)
+VALUES
+	('root', MD5('root'), '超级管理员'),
+	('admin', MD5('admin'), '管理员'),
+	('ums', MD5('ums'), '运维帐号'),
+	('test', MD5('test'), '测试帐号'),
+	('dev', MD5('dev'), '开发帐号'),
+	('prod', MD5('prod'), '生产帐号'),
+	('site', MD5('site'), '准生产帐号'),
+	('stage', MD5('site'), '试运行帐号'),
+	('local', MD5('site'), '本地帐号'),
+	('test001', MD5('test001'), '测试帐号001'),
+	('test002', MD5('test002'), '测试帐号002'),
+	('test003', MD5('test003'), '测试帐号003');
