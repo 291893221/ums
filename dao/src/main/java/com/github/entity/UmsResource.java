@@ -20,6 +20,6 @@ public class UmsResource extends BaseEntity {
 	private String resourceIcon;
 	@ApiModelProperty(value = "资源类型(1:模块目录,2:功能菜单,3:操作按钮)")
 	private Boolean resourceType;
-	@ApiModelProperty(value = "上级id")
+	@ApiModelProperty(value = "上级id", example = "1")
 	private Long pid;
 }
