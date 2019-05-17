@@ -6,18 +6,21 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="is_locked" jdbcType="INTEGER" property="isLocked" />
-    <result column="is_admin" jdbcType="INTEGER" property="isAdmin" />
-    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="is_locked" jdbcType="BOOLEAN" property="isLocked" />
+    <result column="is_admin" jdbcType="BOOLEAN" property="isAdmin" />
+    <result column="is_delete" jdbcType="BOOLEAN" property="isDelete" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="sort" jdbcType="BIGINT" property="sort" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, username, `password`, nickname, is_locked, is_admin, is_delete, create_time,
-    update_time
+    id, username, `password`, nickname, is_locked, is_admin, is_delete, create_time, 
+    update_time, `status`, `describe`, sort
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from t_ums_user
     where id = #{id,jdbcType=BIGINT}
@@ -27,12 +30,14 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsUser" useGeneratedKeys="true">
-    insert into t_ums_user (username, `password`, nickname,
-      is_locked, is_admin, is_delete,
-      create_time, update_time)
+    insert into t_ums_user (username, `password`, nickname, 
+      is_locked, is_admin, is_delete, 
+      create_time, update_time, `status`, 
+      `describe`, sort)
     values (#{username,jdbcType=VARCHAR}, MD5(#{password,jdbcType=VARCHAR}), #{nickname,jdbcType=VARCHAR},
-      #{isLocked,jdbcType=INTEGER}, #{isAdmin,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER},
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+      #{isLocked,jdbcType=BOOLEAN}, #{isAdmin,jdbcType=BOOLEAN}, #{isDelete,jdbcType=BOOLEAN}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BOOLEAN}, 
+      #{describe,jdbcType=VARCHAR}, #{sort,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsUser" useGeneratedKeys="true">
     insert into t_ums_user
@@ -61,6 +66,15 @@
       <if test="updateTime != null">
         update_time,
       </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="describe != null">
+        `describe`,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="username != null">
@@ -73,19 +87,28 @@
         #{nickname,jdbcType=VARCHAR},
       </if>
       <if test="isLocked != null">
-        #{isLocked,jdbcType=INTEGER},
+        #{isLocked,jdbcType=BOOLEAN},
       </if>
       <if test="isAdmin != null">
-        #{isAdmin,jdbcType=INTEGER},
+        #{isAdmin,jdbcType=BOOLEAN},
       </if>
       <if test="isDelete != null">
-        #{isDelete,jdbcType=INTEGER},
+        #{isDelete,jdbcType=BOOLEAN},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="describe != null">
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -102,19 +125,28 @@
         nickname = #{nickname,jdbcType=VARCHAR},
       </if>
       <if test="isLocked != null">
-        is_locked = #{isLocked,jdbcType=INTEGER},
+        is_locked = #{isLocked,jdbcType=BOOLEAN},
       </if>
       <if test="isAdmin != null">
-        is_admin = #{isAdmin,jdbcType=INTEGER},
+        is_admin = #{isAdmin,jdbcType=BOOLEAN},
       </if>
       <if test="isDelete != null">
-        is_delete = #{isDelete,jdbcType=INTEGER},
+        is_delete = #{isDelete,jdbcType=BOOLEAN},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="describe != null">
+        `describe` = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -124,11 +156,14 @@
     set username = #{username,jdbcType=VARCHAR},
       `password` = MD5(#{password,jdbcType=VARCHAR}),
       nickname = #{nickname,jdbcType=VARCHAR},
-      is_locked = #{isLocked,jdbcType=INTEGER},
-      is_admin = #{isAdmin,jdbcType=INTEGER},
-      is_delete = #{isDelete,jdbcType=INTEGER},
+      is_locked = #{isLocked,jdbcType=BOOLEAN},
+      is_admin = #{isAdmin,jdbcType=BOOLEAN},
+      is_delete = #{isDelete,jdbcType=BOOLEAN},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=BOOLEAN},
+      `describe` = #{describe,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectBySelective" parameterType="com.github.entity.UmsUser" resultMap="BaseResultMap">
@@ -137,7 +172,7 @@
     from t_ums_user
     where 1 = 1
     <if test="id != null">
-      and id = #{id,jdbcType=INTEGER}
+      and id = #{id,jdbcType=BIGINT}
     </if>
     <if test="username != null and username != ''">
       and username like concat('%',#{username,jdbcType=VARCHAR},'%')
@@ -146,19 +181,28 @@
       and nickname like concat('%',#{nickname,jdbcType=VARCHAR},'%')
     </if>
     <if test="isLocked != null">
-      and is_locked = #{isLocked,jdbcType=INTEGER}
+      and is_locked = #{isLocked,jdbcType=BOOLEAN}
     </if>
     <if test="isAdmin != null">
-      and is_admin = #{isAdmin,jdbcType=INTEGER}
+      and is_admin = #{isAdmin,jdbcType=BOOLEAN}
     </if>
     <if test="isDelete != null">
-      and is_delete = #{isDelete,jdbcType=INTEGER}
+      and is_delete = #{isDelete,jdbcType=BOOLEAN}
     </if>
     <if test="createTime != null">
       and create_time = #{createTime,jdbcType=TIMESTAMP}
     </if>
     <if test="updateTime != null">
       and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="status != null">
+      and `status` = #{status,jdbcType=BOOLEAN}
+    </if>
+    <if test="describe != null">
+      and `describe` = #{describe,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null">
+      and sort = #{sort,jdbcType=BIGINT}
     </if>
   </select>
 </mapper>
