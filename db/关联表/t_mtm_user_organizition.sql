@@ -6,6 +6,11 @@ CREATE TABLE `t_mtm_user_organizition` (
   -- 业务字段 start
 	`user_id` BIGINT NOT NULL COMMENT '用户表主键，外键关联 t_ums_user.id',
 	`organizition_id` BIGINT  NOT NULL COMMENT '组织树结构表主键，外键关联 t_ums_organizition.id',
+	-- PRIMARY KEY (`user_id`, `organizition_id`),
+	KEY `t_mtm_user_organizition_fk_u` (`user_id`),
+	KEY `t_mtm_user_organizition_fk_o` (`organizition_id`),
+	CONSTRAINT `t_mtm_user_organizition_fk_u` FOREIGN KEY (`user_id`) REFERENCES `t_ums_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT `t_mtm_user_organizition_fk_o` FOREIGN KEY (`organizition_id`) REFERENCES `t_ums_organizition` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',

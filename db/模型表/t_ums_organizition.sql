@@ -19,7 +19,7 @@ CREATE TABLE `t_ums_organizition` (
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT = '组织树结构表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = '组织树结构表';
 -- 初始化数据
 INSERT INTO `t_ums_organizition`
 	(`organizition_name`)
