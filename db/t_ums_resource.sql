@@ -10,7 +10,6 @@ CREATE TABLE `t_ums_resource` (
 	`resource_icon` VARCHAR(32) COMMENT '图标',
 	`resource_type` TINYINT(1) COMMENT '资源类型(1:模块目录,2:功能菜单,3:操作按钮)',
 	`pid` BIGINT COMMENT '上级id',
-  `system_id` BIGINT COMMENT '系统编号，外键关联t_ums_system.id主键',
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
