@@ -27,7 +27,7 @@ public class UmsRoleController {
 	@PostMapping
 	@ApiOperation(value = "新增", notes = "新增数据")
 	@ApiImplicitParams({
-			@ApiImplicitParam(name = "rolename", value = "登陆账号", paramType = "query", required = true)
+			@ApiImplicitParam(name = "rolename", value = "角色名称", paramType = "query", required = true)
 	})
 	public UmsRole insert(@ApiIgnore UmsRole record) {
 		umsRoleService.insertSelective(record);
@@ -44,7 +44,15 @@ public class UmsRoleController {
 
 	@GetMapping
 	@ApiOperation(value = "查询", notes = "分页查询方法")
-	public PageInfo<UmsRole> selectBySelective(UmsRole record) {
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "rolecode", value = "角色编码", paramType = "query"),
+			@ApiImplicitParam(name = "rolename", value = "角色名称", paramType = "query"),
+			@ApiImplicitParam(name = "pageNum", value = "页码", paramType = "query"),
+			@ApiImplicitParam(name = "pageSize", value = "每页显示数据量", paramType = "query"),
+			@ApiImplicitParam(name = "isDelete", value = "是否删除", defaultValue = "0", paramType = "query"),
+			@ApiImplicitParam(name = "status", value = "状态", defaultValue = "1", paramType = "query")
+	})
+	public PageInfo<UmsRole> selectBySelective(@ApiIgnore UmsRole record) {
 		log.info("sysRole {}", record);
 		return umsRoleService.selectPage(record);
 	}
