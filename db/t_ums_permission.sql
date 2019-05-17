@@ -7,7 +7,9 @@ CREATE TABLE `t_ums_permission` (
   `url` VARCHAR(255) COMMENT '资源相对路径',
 	`permission_name` VARCHAR(32) COMMENT '权限名称',
   `permission_value` VARCHAR(32) COMMENT '权限值(c:create创建,r:read查询,u:update修改,d:delete删除)',
+	`icon` VARCHAR(32) COMMENT '图标',
 	`type` TINYINT(1) COMMENT '类型(1:目录,2:菜单,3:按钮)',
+	`pid` BIGINT COMMENT '上级id',
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
@@ -21,6 +23,6 @@ CREATE TABLE `t_ums_permission` (
 	-- 公共字段 end
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT = '权限表';
 -- 初始化数据
-INSERT INTO `t_ums_permission` (`id`, `url`, `role_id`, `permission`) VALUES ('1', '/admin', '1', 'c,r,u,d');
-INSERT INTO `t_ums_permission` (`id`, `url`, `role_id`, `permission`) VALUES ('2', '/admin', '2', 'c,r');
-INSERT INTO `t_ums_permission` (`id`, `url`, `role_id`, `permission`) VALUES ('3', '/admin', '3', 'r');
+INSERT INTO `t_ums_permission` (`id`, `url`, `permission_name`, `permission_value`) VALUES ('1', '/admin', '1', 'c,r,u,d');
+INSERT INTO `t_ums_permission` (`id`, `url`, `permission_name`, `permission_value`) VALUES ('2', '/admin', '2', 'c,r');
+INSERT INTO `t_ums_permission` (`id`, `url`, `permission_name`, `permission_value`) VALUES ('3', '/admin', '3', 'r');
