@@ -6,7 +6,12 @@ CREATE TABLE `t_mtm_user_resource` (
   -- 业务字段 start
 	`user_id` BIGINT NOT NULL COMMENT '用户表主键，外键关联 t_ums_user.id',
 	`resource_id` BIGINT  NOT NULL COMMENT '角色表主键，外键关联 t_ums_resource.id',
-  -- 业务字段 end
+	-- PRIMARY KEY (`user_id`, `resource_id`),
+	KEY `t_mtm_user_resource_fk_u` (`user_id`),
+	KEY `t_mtm_user_resource_fk_r` (`resource_id`),
+	CONSTRAINT `t_mtm_user_resource_fk_u` FOREIGN KEY (`user_id`) REFERENCES `t_ums_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT `t_mtm_user_resource_fk_r` FOREIGN KEY (`resource_id`) REFERENCES `t_ums_resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+	-- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
 	`is_delete` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '是否删除（0:未删除,1:已删除）',
