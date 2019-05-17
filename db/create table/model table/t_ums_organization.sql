@@ -1,12 +1,12 @@
 -- 删表
 DROP TABLE
-IF EXISTS `t_ums_organizition`;
+IF EXISTS `t_ums_organization`;
 -- 建表
-CREATE TABLE `t_ums_organizition` (
+CREATE TABLE `t_ums_organization` (
   -- 业务字段 start
-	`organizition_name`VARCHAR(32) NOT NULL COMMENT '组织名称',
-  `organizition_icon` VARCHAR(32) COMMENT '图标',
-	`organizition_type` TINYINT(1) COMMENT '组织类型(1:集团,2:分公司,3:事业部,4:部门)',
+	`organization_name`VARCHAR(32) NOT NULL COMMENT '组织名称',
+  `organization_icon` VARCHAR(32) COMMENT '图标',
+	`organization_type` TINYINT(1) COMMENT '组织类型(1:集团,2:分公司,3:事业部,4:部门)',
 	`pid` BIGINT COMMENT '上级id',
   -- 业务字段 end
 	-- 公共字段 start
@@ -21,8 +21,8 @@ CREATE TABLE `t_ums_organizition` (
 	-- 公共字段 end
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = '组织树结构表';
 -- 初始化数据
-INSERT INTO `t_ums_organizition`
-	(`organizition_name`)
+INSERT INTO `t_ums_organization`
+	(`organization_name`)
 VALUES
 	('A公司'),
 	('研发部'),
