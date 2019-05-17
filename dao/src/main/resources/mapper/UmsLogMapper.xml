@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.mapper.UmsLogMapper">
-  <resultMap id="BaseResultMap" type="com.github.entity.UmsLog">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="log_url" jdbcType="VARCHAR" property="logUrl" />
-    <result column="log_class" jdbcType="VARCHAR" property="logClass" />
-    <result column="log_method" jdbcType="VARCHAR" property="logMethod" />
-    <result column="log_line" jdbcType="INTEGER" property="logLine" />
-    <result column="log_lever" jdbcType="VARCHAR" property="logLever" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="is_delete" jdbcType="BOOLEAN" property="isDelete" />
-    <result column="status" jdbcType="BOOLEAN" property="status" />
-    <result column="describe" jdbcType="VARCHAR" property="describe" />
-    <result column="sort" jdbcType="BIGINT" property="sort" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="com.github.entity.UmsLog">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="log_url" jdbcType="VARCHAR" property="logUrl"/>
+        <result column="log_class" jdbcType="VARCHAR" property="logClass"/>
+        <result column="log_method" jdbcType="VARCHAR" property="logMethod"/>
+        <result column="log_line" jdbcType="INTEGER" property="logLine"/>
+        <result column="log_lever" jdbcType="VARCHAR" property="logLever"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="is_delete" jdbcType="BOOLEAN" property="isDelete"/>
+        <result column="status" jdbcType="BOOLEAN" property="status"/>
+        <result column="describe" jdbcType="VARCHAR" property="describe"/>
+        <result column="sort" jdbcType="BIGINT" property="sort"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     id, log_url, log_class, log_method, log_line, log_lever, create_time, update_time, 
     is_delete, `status`, `describe`, sort
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_ums_log
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_ums_log
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_ums_log
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsLog" useGeneratedKeys="true">
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsLog"
+            useGeneratedKeys="true">
     insert into t_ums_log (log_url, log_class, log_method, 
       log_line, log_lever, create_time, 
       update_time, is_delete, `status`, 
@@ -39,119 +40,120 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BOOLEAN}, #{status,jdbcType=BOOLEAN}, 
       #{describe,jdbcType=VARCHAR}, #{sort,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsLog" useGeneratedKeys="true">
-    insert into t_ums_log
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="logUrl != null">
-        log_url,
-      </if>
-      <if test="logClass != null">
-        log_class,
-      </if>
-      <if test="logMethod != null">
-        log_method,
-      </if>
-      <if test="logLine != null">
-        log_line,
-      </if>
-      <if test="logLever != null">
-        log_lever,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-      <if test="isDelete != null">
-        is_delete,
-      </if>
-      <if test="status != null">
-        `status`,
-      </if>
-      <if test="describe != null">
-        `describe`,
-      </if>
-      <if test="sort != null">
-        sort,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="logUrl != null">
-        #{logUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="logClass != null">
-        #{logClass,jdbcType=VARCHAR},
-      </if>
-      <if test="logMethod != null">
-        #{logMethod,jdbcType=VARCHAR},
-      </if>
-      <if test="logLine != null">
-        #{logLine,jdbcType=INTEGER},
-      </if>
-      <if test="logLever != null">
-        #{logLever,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="isDelete != null">
-        #{isDelete,jdbcType=BOOLEAN},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=BOOLEAN},
-      </if>
-      <if test="describe != null">
-        #{describe,jdbcType=VARCHAR},
-      </if>
-      <if test="sort != null">
-        #{sort,jdbcType=BIGINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.github.entity.UmsLog">
-    update t_ums_log
-    <set>
-      <if test="logUrl != null">
-        log_url = #{logUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="logClass != null">
-        log_class = #{logClass,jdbcType=VARCHAR},
-      </if>
-      <if test="logMethod != null">
-        log_method = #{logMethod,jdbcType=VARCHAR},
-      </if>
-      <if test="logLine != null">
-        log_line = #{logLine,jdbcType=INTEGER},
-      </if>
-      <if test="logLever != null">
-        log_lever = #{logLever,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="isDelete != null">
-        is_delete = #{isDelete,jdbcType=BOOLEAN},
-      </if>
-      <if test="status != null">
-        `status` = #{status,jdbcType=BOOLEAN},
-      </if>
-      <if test="describe != null">
-        `describe` = #{describe,jdbcType=VARCHAR},
-      </if>
-      <if test="sort != null">
-        sort = #{sort,jdbcType=BIGINT},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.github.entity.UmsLog">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.entity.UmsLog"
+            useGeneratedKeys="true">
+        insert into t_ums_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logUrl != null">
+                log_url,
+            </if>
+            <if test="logClass != null">
+                log_class,
+            </if>
+            <if test="logMethod != null">
+                log_method,
+            </if>
+            <if test="logLine != null">
+                log_line,
+            </if>
+            <if test="logLever != null">
+                log_lever,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="describe != null">
+                `describe`,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="logUrl != null">
+                #{logUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="logClass != null">
+                #{logClass,jdbcType=VARCHAR},
+            </if>
+            <if test="logMethod != null">
+                #{logMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="logLine != null">
+                #{logLine,jdbcType=INTEGER},
+            </if>
+            <if test="logLever != null">
+                #{logLever,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=BOOLEAN},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=BOOLEAN},
+            </if>
+            <if test="describe != null">
+                #{describe,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.github.entity.UmsLog">
+        update t_ums_log
+        <set>
+            <if test="logUrl != null">
+                log_url = #{logUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="logClass != null">
+                log_class = #{logClass,jdbcType=VARCHAR},
+            </if>
+            <if test="logMethod != null">
+                log_method = #{logMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="logLine != null">
+                log_line = #{logLine,jdbcType=INTEGER},
+            </if>
+            <if test="logLever != null">
+                log_lever = #{logLever,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=BOOLEAN},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=BOOLEAN},
+            </if>
+            <if test="describe != null">
+                `describe` = #{describe,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.github.entity.UmsLog">
     update t_ums_log
     set log_url = #{logUrl,jdbcType=VARCHAR},
       log_class = #{logClass,jdbcType=VARCHAR},
