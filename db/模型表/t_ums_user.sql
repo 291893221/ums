@@ -23,9 +23,7 @@ CREATE TABLE `t_ums_user` (
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
-) ENGINE = INNODB DEFAULT CHARSET = utf8;
--- 表注释
-ALTER TABLE t_ums_user COMMENT = '用户表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户表';
 -- 初始化数据
 INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('root', MD5('root'), '超级管理员');
 INSERT INTO `t_ums_user` (`username`, `password`, `nickname`) VALUES ('admin', MD5('admin'), '管理员');

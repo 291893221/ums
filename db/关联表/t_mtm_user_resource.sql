@@ -1,13 +1,11 @@
--- 删表
+-- 删多对多关联表
 DROP TABLE
-IF EXISTS `t_ums_organizition`;
+IF EXISTS `t_mtm_user_resource`;
 -- 建表
-CREATE TABLE `t_ums_organizition` (
+CREATE TABLE `t_mtm_user_resource` (
   -- 业务字段 start
-	`organizition_name`VARCHAR(32) NOT NULL COMMENT '组织名称',
-  `organizition_icon` VARCHAR(32) COMMENT '图标',
-	`organizition_type` TINYINT(1) COMMENT '组织类型(1:集团,2:分公司,3:事业部,4:部门)',
-	`pid` BIGINT COMMENT '上级id',
+	`user_id` BIGINT NOT NULL COMMENT '用户表主键，外键关联 t_ums_user.id',
+	`resource_id` BIGINT  NOT NULL COMMENT '角色表主键，外键关联 t_ums_resource.id',
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
@@ -19,8 +17,7 @@ CREATE TABLE `t_ums_organizition` (
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT = '组织树结构表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户资源关联表';
 -- 初始化数据
-INSERT INTO `t_ums_organizition` (`organizition_name`) VALUES ('A公司');
-INSERT INTO `t_ums_organizition` (`organizition_name`) VALUES ('研发部');
-INSERT INTO `t_ums_organizition` (`organizition_name`) VALUES ('后勤部');
+INSERT INTO `t_mtm_user_resource` (`user_id`, `resource_id`)
+  VALUES (1, 1);

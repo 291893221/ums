@@ -1,10 +1,11 @@
--- 删表
+-- 删多对多关联表
 DROP TABLE
-IF EXISTS `t_ums_role`;
+IF EXISTS `t_mtm_user_role`;
 -- 建表
-CREATE TABLE `t_ums_role` (
+CREATE TABLE `t_mtm_user_role` (
   -- 业务字段 start
-	`rolename` VARCHAR (32) NOT NULL UNIQUE COMMENT '角色名称',
+	`user_id` BIGINT NOT NULL COMMENT '用户表主键，外键关联 t_ums_user.id',
+	`role_id` BIGINT  NOT NULL COMMENT '角色表主键，外键关联 t_ums_role.id',
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
@@ -16,10 +17,7 @@ CREATE TABLE `t_ums_role` (
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
-) ENGINE = INNODB DEFAULT CHARSET = utf8;
--- 表注释
-ALTER TABLE `t_ums_role` COMMENT = '角色表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户角色关联表';
 -- 初始化数据
-INSERT INTO `t_ums_role`(`rolename`) VALUES ('ROLE_ROOT');
-INSERT INTO `t_ums_role`(`rolename`) VALUES ('ROLE_ADMIN');
-INSERT INTO `t_ums_role`(`rolename`) VALUES ('ROLE_USER');
+INSERT INTO `t_mtm_user_role` (`user_id`, `org_id`)
+  VALUES (1, 1);
