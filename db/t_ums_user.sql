@@ -16,7 +16,7 @@ CREATE TABLE `t_ums_user` (
 	`create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL COMMENT '创建时间',
 	`update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL COMMENT '更新时间',
 	`status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '状态(0:禁用,1:正常)',
-	`describe` VARCHAR(32) COMMENT '描述信息',
+	`describe` VARCHAR(32) DEFAULT '' COMMENT '描述信息',
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
