@@ -22,7 +22,7 @@ public class UmsUserController {
 	private UmsUserService umsUserService;
 
 	@PostMapping
-	@ApiOperation(value = "新增", notes = "新增用户信息")
+	@ApiOperation(value = "新增", notes = "新增数据")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "username", value = "登陆账号", paramType = "query", required = true),
 			@ApiImplicitParam(name = "password", value = "登陆密码", paramType = "query", required = true),
