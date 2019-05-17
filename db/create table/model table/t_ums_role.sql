@@ -4,6 +4,7 @@ IF EXISTS `t_ums_role`;
 -- 建表
 CREATE TABLE `t_ums_role` (
   -- 业务字段 start
+	`rolecode` VARCHAR (32) NOT NULL UNIQUE COMMENT '角色编码',
 	`rolename` VARCHAR (32) NOT NULL UNIQUE COMMENT '角色名称',
   -- 业务字段 end
 	-- 公共字段 start
@@ -19,8 +20,8 @@ CREATE TABLE `t_ums_role` (
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '角色表';
 -- 初始化数据
 INSERT INTO `t_ums_role`
-	(`rolename`)
+	(`rolecode`, `rolename`)
 VALUES
-	('ROLE_ROOT'),
-	('ROLE_ADMIN'),
-	('ROLE_USER');
+	('ROLE_ROOT', '超级管理员角色'),
+	('ROLE_ADMIN', '管理员角色'),
+	('ROLE_USER', '用户帐号角色');
