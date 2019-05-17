@@ -10,7 +10,7 @@ CREATE TABLE `t_mtm_user_resource` (
 	KEY `t_mtm_user_resource_fk_u` (`user_id`),
 	KEY `t_mtm_user_resource_fk_r` (`resource_id`),
 	CONSTRAINT `t_mtm_user_resource_fk_u` FOREIGN KEY (`user_id`) REFERENCES `t_ums_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-	CONSTRAINT `t_mtm_user_resource_fk_r` FOREIGN KEY (`resource_id`) REFERENCES `t_ums_resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT `t_mtm_user_resource_fk_r` FOREIGN KEY (`resource_id`) REFERENCES `t_ums_resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 	-- 业务字段 end
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户资源关联表';
 -- 初始化数据
