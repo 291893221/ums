@@ -121,4 +121,34 @@
       sort = #{sort,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <select id="selectBySelective" parameterType="com.github.entity.UmsRole" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_ums_role
+        where 1 = 1
+        <if test="id != null">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="rolename != null">
+            and rolename = #{rolename,jdbcType=VARCHAR}
+        </if>
+        <if test="isDelete != null">
+            and is_delete = #{isDelete,jdbcType=BOOLEAN}
+        </if>
+        <if test="createTime != null">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateTime != null">
+            and update_time = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="status != null">
+            and `status` = #{status,jdbcType=BOOLEAN}
+        </if>
+        <if test="describe != null">
+            and `describe` = #{describe,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null">
+            and sort = #{sort,jdbcType=BIGINT}
+        </if>
+    </select>
 </mapper>
