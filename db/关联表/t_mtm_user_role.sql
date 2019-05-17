@@ -19,5 +19,5 @@ CREATE TABLE `t_mtm_user_role` (
 	-- 公共字段 end
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户角色关联表';
 -- 初始化数据
-INSERT INTO `t_mtm_user_role` (`user_id`, `org_id`)
+INSERT INTO `t_mtm_user_role` (`user_id`, `role_id`)
   VALUES (1, 1);
