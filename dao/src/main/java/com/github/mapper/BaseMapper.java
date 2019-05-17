@@ -6,18 +6,18 @@ import java.util.List;
 
 public interface BaseMapper<T extends BaseEntity> {
 
-	int insert(T t);
-
-	int insertSelective(T t);
+	List<T> selectBySelective(T record);
 
 	int deleteByPrimaryKey(Long id);
 
+	int insert(T record);
+
+	int insertSelective(T record);
+
 	T selectByPrimaryKey(Long id);
 
-	List<T> selectBySelective(T record);
+	int updateByPrimaryKeySelective(T record);
 
-	int updateByPrimaryKeySelective(T t);
-
-	int updateByPrimaryKey(T t);
+	int updateByPrimaryKey(T record);
 
 }
