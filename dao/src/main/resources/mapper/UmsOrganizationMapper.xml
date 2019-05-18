@@ -155,4 +155,43 @@
       sort = #{sort,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectBySelective" parameterType="com.github.entity.UmsOrganization" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_ums_organization
+    where 1 = 1
+    <if test="organizationName != null">
+      and id = #{id,jdbcType=BIGINT}
+    </if>
+    <if test="organizationName != null">
+      and organization_name = #{organizationName,jdbcType=VARCHAR}
+    </if>
+    <if test="organizationIcon != null">
+      and organization_icon = #{organizationIcon,jdbcType=VARCHAR}
+    </if>
+    <if test="organizationType != null">
+      and organization_type = #{organizationType,jdbcType=BOOLEAN}
+    </if>
+    <if test="pid != null">
+      and pid = #{pid,jdbcType=BIGINT}
+    </if>
+    <if test="createTime != null">
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateTime != null">
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isDelete != null">
+      and is_delete = #{isDelete,jdbcType=BOOLEAN}
+    </if>
+    <if test="status != null">
+      and `status` = #{status,jdbcType=BOOLEAN}
+    </if>
+    <if test="describe != null">
+      and `describe` = #{describe,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null">
+      and sort = #{sort,jdbcType=BIGINT}
+    </if>
+  </select>
 </mapper>
