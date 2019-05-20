@@ -6,7 +6,7 @@ CREATE TABLE `t_ums_organization` (
   -- 业务字段 start
 	`organization_name`VARCHAR(32) NOT NULL COMMENT '组织名称',
   `organization_icon` VARCHAR(32) COMMENT '图标',
-	`organization_type` TINYINT(1) COMMENT '组织类型(1:集团,2:分公司,3:事业部,4:部门)',
+	`organization_type` TINYINT(2) COMMENT '组织类型(1:集团,2:分公司,3:事业部,4:部门)',
 	`pid` BIGINT COMMENT '上级id',
   -- 业务字段 end
 	-- 公共字段 start

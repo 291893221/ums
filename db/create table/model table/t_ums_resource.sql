@@ -8,7 +8,7 @@ CREATE TABLE `t_ums_resource` (
 	`resource_name` VARCHAR(32) COMMENT '资源名称',
   `resource_permission` VARCHAR(32) COMMENT '资源权限(c:create创建,r:read查询,u:update修改,d:delete删除)',
 	`resource_icon` VARCHAR(32) COMMENT '图标',
-	`resource_type` TINYINT(1) COMMENT '资源类型(1:模块目录,2:功能菜单,3:操作按钮)',
+	`resource_type` TINYINT(2) COMMENT '资源类型(1:模块目录,2:功能菜单,3:操作按钮)',
 	`pid` BIGINT COMMENT '上级id',
   -- 业务字段 end
 	-- 公共字段 start
