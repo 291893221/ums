@@ -181,4 +181,49 @@
       sort = #{sort,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <select id="selectBySelective" parameterType="com.github.entity.UmsResource" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_ums_resource
+        where 1 = 1
+        <if test="id != null">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="resourceUrl != null">
+            and resource_url = #{resourceUrl,jdbcType=VARCHAR}
+        </if>
+        <if test="resourceName != null">
+            and resource_name = #{resourceName,jdbcType=VARCHAR}
+        </if>
+        <if test="resourcePermission != null">
+            and resource_permission = #{resourcePermission,jdbcType=VARCHAR}
+        </if>
+        <if test="resourceIcon != null">
+            and resource_icon = #{resourceIcon,jdbcType=VARCHAR}
+        </if>
+        <if test="resourceType != null">
+            and resource_type = #{resourceType,jdbcType=BOOLEAN}
+        </if>
+        <if test="pid != null">
+            and pid = #{pid,jdbcType=BIGINT}
+        </if>
+        <if test="createTime != null">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateTime != null">
+            and update_time = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isDelete != null">
+            and is_delete = #{isDelete,jdbcType=BOOLEAN}
+        </if>
+        <if test="status != null">
+            and `status` = #{status,jdbcType=BOOLEAN}
+        </if>
+        <if test="describe != null">
+            and `describe` = #{describe,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null">
+            and sort = #{sort,jdbcType=BIGINT}
+        </if>
+    </select>
 </mapper>
