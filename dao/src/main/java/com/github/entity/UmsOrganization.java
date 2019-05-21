@@ -17,8 +17,8 @@ public class UmsOrganization extends BaseEntity {
 	@ApiModelProperty(value = "图标")
 	private String organizationIcon;
 
-	@ApiModelProperty(value = "组织类型(1:集团,2:分公司,3:事业部,4:部门)")
-	private Boolean organizationType;
+    @ApiModelProperty(value="组织类型(1:集团,2:分公司,3:事业部,4:部门)", example = "1")
+    private Integer organizationType;
 
 	@ApiModelProperty(value = "上级id", example = "1")
 	private Long pid;
