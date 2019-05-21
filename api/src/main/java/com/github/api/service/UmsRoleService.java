@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class UmsRoleService extends BaseService<UmsRole>{
+public class UmsRoleService extends BaseService<UmsRole> {
 	@Resource
 	private UmsRoleMapper umsRoleMapper;
 }
