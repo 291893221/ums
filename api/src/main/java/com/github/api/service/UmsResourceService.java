@@ -10,6 +10,8 @@ import javax.annotation.Resource;
 @Slf4j
 @Service
 public class UmsResourceService extends BaseService<UmsResource> {
+
 	@Resource
 	private UmsResourceMapper umsResourceMapper;
+
 }
