@@ -19,42 +19,9 @@ import springfox.documentation.annotations.ApiIgnore;
 @RestController
 @RequestMapping("/ums/user")
 @Api(tags = "用户管理")
-public class UmsUserController {
+public class UmsUserController extends BaseController<UmsUser>{
 
 	@Autowired
 	private UmsUserService umsUserService;
 
-	@PostMapping
-	@ApiOperation(value = "新增", notes = "新增数据")
-	@ApiImplicitParams({
-			@ApiImplicitParam(name = "username", value = "登陆账号", paramType = "query", required = true),
-			@ApiImplicitParam(name = "password", value = "登陆密码", paramType = "query", required = true),
-			@ApiImplicitParam(name = "nickname", value = "用户姓名", paramType = "query")
-	})
-	public UmsUser insert(@ApiIgnore UmsUser record) {
-		umsUserService.insertSelective(record);
-		log.info("sysUser {}", record);
-		return record;
-	}
-
-	@DeleteMapping
-	@ApiOperation(value = "删除", notes = "根据主键i的删除数据")
-	public int delete(Long id) {
-		log.info("id {}", id);
-		return umsUserService.deleteByPrimaryKey(id);
-	}
-
-	@GetMapping
-	@ApiOperation(value = "查询", notes = "分页查询方法")
-	public PageInfo<UmsUser> selectBySelective(UmsUser record) {
-		log.info("sysRole {}", record);
-		return umsUserService.selectPage(record);
-	}
-
-	@PutMapping
-	@ApiOperation(value = "修改", notes = "根据主键id更新数据")
-	public int updateByPrimaryKeySelective(UmsUser record) {
-		log.info("sysUser {}", record);
-		return umsUserService.updateByPrimaryKeySelective(record);
-	}
 }
