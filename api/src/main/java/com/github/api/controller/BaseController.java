@@ -23,7 +23,7 @@ public class BaseController<T extends BaseEntity> {
 	}
 
 	@DeleteMapping("/{id}")
-	@ApiOperation(value = "删除", notes = "根据主键i的删除数据")
+	@ApiOperation(value = "删除", notes = "根据主键id删除数据")
 	public int delete(@PathVariable("id") Long id) {
 		log.info("id {}", id);
 		return service.deleteByPrimaryKey(id);
