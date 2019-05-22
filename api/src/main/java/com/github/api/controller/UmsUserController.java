@@ -2,15 +2,11 @@ package com.github.api.controller;
 
 import com.github.api.service.UmsUserService;
 import com.github.entity.UmsUser;
-import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * http://localhost:8080/ums/user
@@ -19,7 +15,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @RestController
 @RequestMapping("/ums/user")
 @Api(tags = "用户管理")
-public class UmsUserController extends BaseController<UmsUser>{
+public class UmsUserController extends BaseController<UmsUser> {
 
 	@Autowired
 	private UmsUserService umsUserService;

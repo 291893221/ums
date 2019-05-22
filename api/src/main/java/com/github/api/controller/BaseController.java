@@ -3,27 +3,20 @@ package com.github.api.controller;
 import com.github.api.service.BaseService;
 import com.github.entity.BaseEntity;
 import com.github.pagehelper.PageInfo;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
 @Slf4j
 public class BaseController<T extends BaseEntity> {
+
 	@Autowired
 	private BaseService<T> service;
 
 	@PostMapping
 	@ApiOperation(value = "新增", notes = "新增数据")
-	@ApiImplicitParams({
-			@ApiImplicitParam(name = "username", value = "登陆账号", paramType = "query", required = true),
-			@ApiImplicitParam(name = "password", value = "登陆密码", paramType = "query", required = true),
-			@ApiImplicitParam(name = "nickname", value = "用户姓名", paramType = "query")
-	})
-	public T insert(@ApiIgnore T record) {
+	public T insert(T record) {
 		service.insertSelective(record);
 		log.info("sysUser {}", record);
 		return record;
@@ -49,4 +42,5 @@ public class BaseController<T extends BaseEntity> {
 		log.info("sysUser {}", record);
 		return service.updateByPrimaryKeySelective(record);
 	}
+
 }
