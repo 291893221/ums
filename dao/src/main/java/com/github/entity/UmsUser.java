@@ -3,12 +3,14 @@ package com.github.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Created by Mybatis Generator 2019/05/21
  */
 @ApiModel(value = "com.github.entity.UmsUser")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class UmsUser extends BaseEntity {
 
 	@ApiModelProperty(value = "登陆帐号")
