@@ -5,11 +5,11 @@
     <parent>
         <artifactId>ums</artifactId>
         <groupId>com.github</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${application.version}</version>
     </parent>
     <groupId>com.github</groupId>
     <artifactId>api</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${application.version}</version>
     <packaging>war</packaging>
     <name>api</name>
     <description>Spring Boot WEB APP</description>
@@ -32,7 +32,6 @@
         <dependency>
             <groupId>com.github</groupId>
             <artifactId>dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

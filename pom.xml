@@ -12,13 +12,14 @@
     <groupId>com.github</groupId>
     <artifactId>ums</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${application.version}</version>
     <modules>
         <module>dao</module>
         <module>api</module>
     </modules>
     <properties>
         <java.version>12</java.version>
+        <application.version>1.0-SNAPSHOT</application.version>
     </properties>
     <dependencies>
         <dependency>
@@ -32,4 +33,28 @@
             <version>1.9.0.RELEASE</version>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github</groupId>
+                <artifactId>api</artifactId>
+                <version>${application.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github</groupId>
+                <artifactId>dao</artifactId>
+                <version>${application.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.1.13</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>1.2.10</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
