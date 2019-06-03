@@ -9,9 +9,9 @@ CREATE TABLE `t_sys_log` (
 	`log_method` VARCHAR (32) NOT NULL COMMENT '方法',
 	`log_param` VARCHAR (32) NOT NULL COMMENT '参数',
 	`log_line` INT(11) NOT NULL DEFAULT '0' COMMENT '代码行',
-	`log_lever` VARCHAR (16) NOT NULL DEFAULT '' COMMENT '日志级别',
+	`log_lever` VARCHAR (16) NOT NULL DEFAULT '' COMMENT '日志级别(OFF,FATAL,ERROR,WARN,INFO,DEBUG,TRACE,ALL)',
 	`log_action` VARCHAR (32) NOT NULL COMMENT '动作',
-	`log_message` VARCHAR (32) NOT NULL DEFAULT '' COMMENT '日志信息',
+	`log_message` VARCHAR (240) NOT NULL DEFAULT '' COMMENT '日志信息',
   -- 业务字段 end
 	-- 公共字段 start
 	`id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键编号',
@@ -23,4 +23,4 @@ CREATE TABLE `t_sys_log` (
 	`sort` BIGINT DEFAULT 1 COMMENT '排序编号',
 	PRIMARY KEY (`id`)
 	-- 公共字段 end
-) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '日志表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '系统日志表';
