@@ -14,8 +14,8 @@
     <packaging>pom</packaging>
     <version>${application.version}</version>
     <modules>
-        <module>dao</module>
-        <module>api</module>
+        <module>ums-dao</module>
+        <module>ums-api</module>
     </modules>
     <properties>
         <java.version>12</java.version>
