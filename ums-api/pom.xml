@@ -11,7 +11,7 @@
     <artifactId>ums-api</artifactId>
     <version>${application.version}</version>
     <packaging>jar</packaging>
-    <name>api</name>
+    <name>ums-api</name>
     <description>Spring Boot WEB APP</description>
 
     <dependencies>
@@ -31,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>com.github</groupId>
-            <artifactId>dao</artifactId>
+            <artifactId>ums-dao</artifactId>
         </dependency>
     </dependencies>
 

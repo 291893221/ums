@@ -37,12 +37,12 @@
         <dependencies>
             <dependency>
                 <groupId>com.github</groupId>
-                <artifactId>api</artifactId>
+                <artifactId>ums-api</artifactId>
                 <version>${application.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github</groupId>
-                <artifactId>dao</artifactId>
+                <artifactId>ums-dao</artifactId>
                 <version>${application.version}</version>
             </dependency>
             <dependency>
