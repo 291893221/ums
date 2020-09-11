@@ -11,15 +11,15 @@
     </parent>
     <groupId>com.github</groupId>
     <artifactId>ums</artifactId>
+    <version>1.0</version>
     <packaging>pom</packaging>
-    <version>${application.version}</version>
     <modules>
         <module>ums-dao</module>
         <module>ums-api</module>
     </modules>
     <properties>
         <java.version>12</java.version>
-        <application.version>1.0-SNAPSHOT</application.version>
+        <application.version>1.0</application.version>
     </properties>
     <dependencies>
         <dependency>

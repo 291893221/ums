@@ -5,11 +5,11 @@
     <parent>
         <artifactId>ums</artifactId>
         <groupId>com.github</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
     <groupId>com.github</groupId>
     <artifactId>ums-api</artifactId>
-    <version>${application.version}</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
     <name>ums-api</name>
     <description>Spring Boot WEB APP</description>
