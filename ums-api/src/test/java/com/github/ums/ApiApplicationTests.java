@@ -1,4 +1,4 @@
-package com.github.api;
+package com.github.ums;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
