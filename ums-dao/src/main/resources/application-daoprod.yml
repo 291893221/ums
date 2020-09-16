@@ -12,7 +12,7 @@ mybatis:
     configuration:
         log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 logging:
-    file: D:\\2019.01.02\\4_LOG\\ums\\prod.log
+    file: D:\\log\\ums\\prod.log
     level.com.github.mapper: debug
     pattern:
         console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p})
