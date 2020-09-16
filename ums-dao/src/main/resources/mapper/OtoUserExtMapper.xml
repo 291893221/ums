@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.mapper.OtoUserExtMapper">
+<mapper namespace="com.github.ums.mapper.OtoUserExtMapper">
     <resultMap id="BaseResultMap" type="com.github.ums.entity.OtoUserExt">
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
