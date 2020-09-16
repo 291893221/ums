@@ -12,13 +12,7 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 public class UmsApplication {
 
 	public static void main(String[] args) {
-		System.out.println("aaaaaaaaaaaa");
-		try {
-			SpringApplication.run(UmsApplication.class, args);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		SpringApplication.run(UmsApplication.class, args);
 	}
 
 }
