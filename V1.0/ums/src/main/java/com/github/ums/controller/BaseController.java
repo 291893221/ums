@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.github.pagehelper.PageInfo;
 import com.github.ums.entity.BaseEntity;
+import com.github.ums.service.BaseService;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
