@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>com.github</groupId>
-            <artifactId>ums-dao</artifactId>
+            <artifactId>ums-web</artifactId>
         </dependency>
     </dependencies>
 
