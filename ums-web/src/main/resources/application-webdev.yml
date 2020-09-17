@@ -1,9 +1,0 @@
-spring:
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
-application:
-  version: 1.0
-
-swagger:
-  exclude-path: /error
