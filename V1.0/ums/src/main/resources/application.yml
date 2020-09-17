@@ -7,6 +7,8 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
     main:
         allow-bean-definition-overriding: true
+    application:
+        name: common-dao
 mybatis:
     mapper-locations: classpath:/mapper/*.xml
     configuration:
