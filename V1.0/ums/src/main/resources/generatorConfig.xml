@@ -14,6 +14,6 @@
     <javaClientGenerator targetPackage="com.gisuni.triggerlog.mapper" 
     targetProject="${name}" 
     type="XMLMAPPER" />
-    <table tableName="logging_event" />
+    <table tableName="t_ums_user" />
   </context>
 </generatorConfiguration>

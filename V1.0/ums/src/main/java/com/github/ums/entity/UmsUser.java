@@ -1,4 +1,4 @@
-package com.github.simple.entity;
+package com.github.ums.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
  */
 @ApiModel(value = "com.github.entity.UmsUser")
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class UmsUser extends BaseEntity {
 
 	@ApiModelProperty(value = "登陆帐号")

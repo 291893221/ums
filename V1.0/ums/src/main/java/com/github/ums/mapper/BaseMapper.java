@@ -1,8 +1,8 @@
-package com.github.simple.mapper;
+package com.github.ums.mapper;
 
 import java.util.List;
 
-import com.github.simple.entity.BaseEntity;
+import com.github.ums.entity.BaseEntity;
 
 public interface BaseMapper<T extends BaseEntity> {
 

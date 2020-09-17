@@ -1,4 +1,4 @@
-package com.github.simple.entity;
+package com.github.ums.entity;
 
 import java.io.Serializable;
 import java.util.Date;

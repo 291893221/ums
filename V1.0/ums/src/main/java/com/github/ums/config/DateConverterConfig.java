@@ -1,5 +1,4 @@
-package com.github.simple.config;
-
+package com.github.ums.config;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

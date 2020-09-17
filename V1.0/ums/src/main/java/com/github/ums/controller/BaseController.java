@@ -1,4 +1,4 @@
-package com.github.simple.controller;
+package com.github.ums.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.github.pagehelper.PageInfo;
-import com.github.simple.entity.BaseEntity;
-import com.github.simple.service.BaseService;
+import com.github.ums.entity.BaseEntity;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.github.simple.service;
+package com.github.ums.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.github.simple.entity.BaseEntity;
-import com.github.simple.mapper.BaseMapper;
+import com.github.ums.entity.BaseEntity;
+import com.github.ums.mapper.BaseMapper;
 
 public class BaseService<T extends BaseEntity> {
 
