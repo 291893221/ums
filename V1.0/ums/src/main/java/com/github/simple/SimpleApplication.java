@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.spring4all.swagger.EnableSwagger2Doc;
 
 @SpringBootApplication
-@MapperScan("com.github.common.mapper")
+@MapperScan("com.github.ums.mapper")
 @EnableSwagger2Doc
 public class SimpleApplication {
 
