@@ -7,12 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.spring4all.swagger.EnableSwagger2Doc;
 
 @SpringBootApplication
-@MapperScan("com.github.ums.mapper")
+@MapperScan("com.github.common.mapper")
 @EnableSwagger2Doc
-public class UmsApplication {
+public class CommonApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UmsApplication.class, args);
+		SpringApplication.run(CommonApplication.class, args);
 	}
 
 }
